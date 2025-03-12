@@ -98,6 +98,6 @@ input_data[numerical_features] = scaler.transform(input_data[numerical_features]
 if st.button('Predict Sales'):
     try:
         prediction = model.predict(input_data)
-        st.write(f'Predicted Sales: {prediction[0]:.2f}')
+        st.write(f'Predicted Sales: {prediction[0]:.2f} Units')
     except Exception as e:
         st.error(f"Error during prediction: {e}")
