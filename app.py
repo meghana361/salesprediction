@@ -60,7 +60,27 @@ input_data = pd.DataFrame({
     'Outlet_Size_Medium': [outlet_size_medium],
     'Outlet_Location_Type_Tier 1': [outlet_location_type_tier1],
     'Outlet_Type_Supermarket Type1': [outlet_type_supermarket_type1],
-    'Item_Category_FD': [item_category_fd]
+    'Item_Category_FD': [item_category_fd],
+    'Item_Fat_Content_Regular': [0], #Add these columns and set to 0 or 1.
+    'Item_Type_Breads': [0],
+    'Item_Type_Breakfast': [0],
+    'Item_Type_Canned': [0],
+    'Item_Type_Frozen Foods': [0],
+    'Item_Type_Fruits and Vegetables': [0],
+    'Item_Type_Hard Drinks': [0],
+    'Item_Type_Health and Hygiene': [0],
+    'Item_Type_Household': [0],
+    'Item_Type_Meat': [0],
+    'Item_Type_Others': [0],
+    'Item_Type_Seafood': [0],
+    'Item_Type_Snack Foods': [0],
+    'Item_Type_Starchy Foods': [0],
+    'Outlet_Size_Small': [0],
+    'Outlet_Location_Type_Tier 2': [0],
+    'Outlet_Location_Type_Tier 3': [0],
+    'Outlet_Type_Supermarket Type2': [0],
+    'Outlet_Type_Supermarket Type3': [0],
+    'Item_Category_NC': [0]
 })
 
 # Debugging: Print trained_columns and input_data columns
