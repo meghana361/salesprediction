@@ -2,13 +2,33 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
+import os
+
+# Check if the model file exists
+if not os.path.exists('sales_prediction_model.pkl'):
+    st.error("Model file 'sales_prediction_model.pkl' not found. Please ensure it's in the same directory.")
+    st.stop()  # Stop execution if the model file is missing
+
+# Check if the scaler file exists
+if not os.path.exists('scaler.pkl'):
+    st.error("Scaler file 'scaler.pkl' not found. Please ensure it's in the same directory.")
+    st.stop()  # Stop execution if the scaler file is missing
 
 # Load the model and trained_columns
-with open('sales_prediction_model.pkl', 'rb') as file:
-    model, trained_columns = pickle.load(file) #Corrected line.
+try:
+    with open('sales_prediction_model.pkl', 'rb') as file:
+        model, trained_columns = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
-with open('scaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
+# Load the scaler
+try:
+    with open('scaler.pkl', 'rb') as file:
+        scaler = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading scaler: {e}")
+    st.stop()
 
 # Define input features (adjust based on your actual features)
 st.title('Sales Prediction App')
@@ -52,5 +72,8 @@ input_data[numerical_features] = scaler.transform(input_data[numerical_features]
 
 # Make prediction
 if st.button('Predict Sales'):
-    prediction = model.predict(input_data)
-    st.write(f'Predicted Sales: ${prediction[0]:.2f}')
+    try:
+        prediction = model.predict(input_data)
+        st.write(f'Predicted Sales: ${prediction[0]:.2f}')
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
