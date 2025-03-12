@@ -46,7 +46,7 @@ item_type_softdrinks = st.selectbox('Item Type Soft Drinks', [0, 1])
 outlet_size_medium = st.selectbox('Outlet Size Medium', [0, 1])
 outlet_location_type_tier1 = st.selectbox('Outlet Location Type Tier 1', [0, 1])
 outlet_type_supermarket_type1 = st.selectbox('Outlet Type Supermarket Type1', [0, 1])
-item_category_fd = st.selectbox('Item Category FD', [0,1])
+item_category_fd = st.selectbox('Item Category FD', [0, 1])
 
 # Then when creating your input data.
 input_data = pd.DataFrame({
@@ -62,6 +62,10 @@ input_data = pd.DataFrame({
     'Outlet_Type_Supermarket Type1': [outlet_type_supermarket_type1],
     'Item_Category_FD': [item_category_fd]
 })
+
+# Debugging: Print trained_columns and input_data columns
+print("Trained Columns:", trained_columns)
+print("Input Data Columns:", input_data.columns.tolist())
 
 # Reorder the columns to match the trained model
 input_data = input_data[trained_columns]
